@@ -1,0 +1,36 @@
+---
+name: Create release
+
+# yamllint disable rule:line-length
+
+on:
+    workflow_dispatch:
+    push:
+        branches:
+            - main
+    schedule:
+        - cron: 0 0 * * 1
+
+defaults:
+    run:
+        shell: bash
+
+jobs:
+
+    Deploy:
+
+        name: Deploy
+        runs-on: ubuntu-latest
+        timeout-minutes: 120
+
+        steps:
+
+            - name: Checkout code
+              uses: actions/checkout@v3
+              with:
+                  submodules: recursive
+                  fetch-depth: 1
+
+            - run: docker build --compress . --tag benvining/citrus_dev_machine:latest
+
+            - run: docker push benvining/citrus_dev_machine:latest

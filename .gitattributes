@@ -1,0 +1,7 @@
+* text=auto eol=lf encoding=utf-8 whitespace=tab-in-indent
+
+.git*                 export-ignore
+.ecrc                 export-ignore
+.editorconfig         export-ignore
+.pre-commit-config    export-ignore
+Makefile              export-ignore
