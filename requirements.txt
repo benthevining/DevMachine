@@ -1,6 +1,6 @@
 bump2version
-clang-format
 cpplint
 ninja
 pre-commit
 shellcheck-py
+# clang-format is available here but takes forever to build!
