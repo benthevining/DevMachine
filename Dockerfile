@@ -1,5 +1,3 @@
-# based on: https://github.com/xu-cheng/latex-docker/blob/master/Dockerfile
-
 FROM alpine:3.16.0 AS base
 
 FROM base AS citrus_dev_machine
@@ -23,15 +21,18 @@ RUN \
 		ccache=4.6.1-r0 \
 		clang=13.0.1-r1 \
 		cmake=3.23.2-r0 \
-		doxygen=1.9.4-r0 \
+		curl=7.83.1-r1 \
 		gcc=11.2.1_git20220219-r2 \
 		g++=11.2.1_git20220219-r2 \
 		git=2.36.1-r0 \
 		make=4.3-r0 \
 		musl-dev=1.2.3-r0 \
 		musl-utils=1.2.3-r0 \
+		perl=5.34.1-r0 \
 		python3=3.10.4-r0 \
-		ruby=3.1.2-r0
+		ruby=3.1.2-r0 \
+		tar=1.34-r0 \
+		wget=1.21.3-r0
 
 COPY requirements.txt /tmp/requirements.txt
 
