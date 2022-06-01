@@ -1,0 +1,11 @@
+{
+  "build": {
+    "args": {
+      "apk_version": "edge"
+    },
+    "context": ".",
+    "dockerfile": "Dockerfile"
+  },
+  "image": "benvining/citrus_dev_machine",
+  "name": "Citrus DevMachine"
+}

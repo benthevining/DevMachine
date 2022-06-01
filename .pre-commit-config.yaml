@@ -23,6 +23,9 @@ repos:
     - repo: https://github.com/pre-commit/pre-commit-hooks
       rev: v4.2.0
       hooks:
+          - id: check-json
+          - id: pretty-format-json
+            args: [--autofix]
           - id: check-yaml
           - id: check-case-conflict
           - id: check-merge-conflict

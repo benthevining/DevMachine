@@ -25,12 +25,23 @@ jobs:
 
         steps:
 
-            - name: Checkout code
-              uses: actions/checkout@v3
+            - name: Set up QEMU
+              id: setup_qemu
+              uses: docker/setup-qemu-action@v2
+
+            - name: Set up Docker Buildx
+              uses: docker/setup-buildx-action@v2
+
+            - name: Login to DockerHub
+              uses: docker/login-action@v2
               with:
-                  submodules: recursive
-                  fetch-depth: 1
+                  username: ${{ secrets.DOCKERHUB_USERNAME }}
+                  password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-            - run: docker build --compress . --tag benvining/citrus_dev_machine:latest
-
-            - run: docker push benvining/citrus_dev_machine:latest
+            - name: Build and push
+              uses: docker/build-push-action@v3
+              with:
+                  context: .
+                  platforms: ${{ steps.setup_qemu.outputs.platforms }}
+                  push: true
+                  tags: benvining/citrus_dev_machine:latest
