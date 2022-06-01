@@ -41,7 +41,6 @@ jobs:
             - name: Build and push
               uses: docker/build-push-action@v3
               with:
-                  context: .
                   platforms: ${{ steps.setup_qemu.outputs.platforms }}
                   push: true
                   tags: benvining/citrus_dev_machine:latest
