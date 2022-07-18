@@ -1,4 +1,4 @@
-FROM alpine:3.16.0 AS base
+FROM alpine:3.16.1 AS base
 
 FROM base AS citrus_dev_machine
 
